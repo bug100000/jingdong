@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>京东</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Slicebox - 3D Image Slider with Fallback" />
+    <meta name="keywords" content="jquery, css3, 3d, webkit, fallback, slider, css3, 3d transforms, slices, rotate, box, automatic" />
+    <meta name="author" content="Pedro Botelho for Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <!-- <link rel="stylesheet" href="http://dreamsky.github.io/main/blog/common/init.css"> -->
+
+    <script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+
+    <style media="screen">
+
+        body {
+            margin: 0;
+            background-color: #f6f6f6;
+            height: 5000px;
+        }
+
+        .top {
+            height: 30px;
+            background: #e3e4e5;
+        }
+
+        .top-kuang {
+            margin: auto;
+            height: 30px;
+            width: 1190px;
+        }
+
+        .beijing {
+            float: left;
+            width: 100px;
+            height: 30px;
+            margin-left: 220px;
+            line-height: 28px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .beijing-dingwei {
+            position: relative;
+            left: -15px;
+            top: 9px;
+            width: 12px;
+            height: 12px;
+            background: red;
+            border-radius: 6px;
+        }
+
+        .beijing-zi {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            top: -11px;
+            left: 0px;
+        }
+
+        .top-daohang {
+            float: right;
+            width: 703px;
+            height: 30px;
+            margin: 0px;
+        }
+
+        .top-daohang li {
+            width: 65px;
+            height: 14px;
+            line-height: 14px;
+            float: right;
+            border-right: 1px solid #ccc;
+            font-size: 12px;
+            margin-top: 8px;
+            padding-left: 13px;
+        }
+
+        .top-daohang li a {
+            color: #999;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .erweima {
+            width: 68px;
+            height: 68px;
+            float: right;
+        }
+
+        .kuang-er {
+            margin: auto;
+            height: 100px;
+            width: 1190px;
+            background: #f6f6f6;
+            position: relative;
+        }
+
+        .dog {
+            height: 170px;
+            width: 190px;
+            background-color: white;
+            background-image: url("./logo.v2.png");
+            position: relative;
+            left: 0px;
+            top: -30px;
+        }
+
+        .gouwuche {
+            width: 190px;
+            height: 35px;
+            border: 1px solid #e3e4e5;
+            background: white;
+            /*padding-left: 50px;
+          padding-top: 2px;*/
+            text-align: center;
+            line-height: 35px;
+            font-size: 12px;
+            color: red;
+            position: absolute;
+            right: 96px;
+            top: 27px;
+        }
+
+        .gouwuche a {
+            color: red;
+        }
+
+        .gouwuche-pic {
+            width: 20px;
+            height: 18px;
+            background-image: url("./008.png");
+            position: absolute;
+            left: 40px;
+            top: 6px;
+        }
+
+        .quan {
+            width: 14px;
+            height: 16px;
+            background: red;
+            font-size: 16px;
+            border-radius: 6px;
+            line-height: 16px;
+            color: white;
+            position: absolute;
+            right: 50px;
+            top: 5px;
+        }
+
+        .soshuo {
+            width: 555px;
+            height: 100px;
+            position: absolute;
+            right: 316px;
+            top: 27px;
+        }
+
+        input {
+            float: left;
+            width: 490px;
+            height: 33px;
+            border: 1px solid red;
+            padding-left: 10px;
+        }
+
+        .soshuo-logo {
+            float: left;
+            width: 50px;
+            height: 35px;
+            background-image: url("./010.png");
+            border: 1px solid red;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        .soshuo-ul {
+            float: left;
+            margin-left: -40px;
+            margin-top: 0px;
+        }
+
+        .soshuo-ul li {
+            float: left;
+            width: 55px;
+            height: 30px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .soshuo-ul a {
+            color: #999;
+        }
+
+        .daohang-ul {
+            width: 790px;
+            height: 40px;
+            margin: auto;
+            margin-top: 0px;
+            padding: 0px;
+        }
+
+        .daohang-ul li {
+            float: left;
+            height: 15px;
+            line-height: 15px;
+            margin-top: 13px;
+            margin-left: 18px;
+            border-right: 1px solid #ccc;
+        }
+
+        .daohang-ul li a {
+            color: #555;
+            font-weight: bolder;
+            font-size: 16px;
+        }
+
+        .kuang-san {
+            margin: auto;
+            width: 1190px;
+            height: 480px;
+        }
+
+        .kuang-san-one {
+            float: left;
+            width: 190px;
+            height: 480px;
+            background: #6e6568;
+        }
+
+        .kuang-san-one ul {
+            margin-top: 18px;
+            margin-left: -32px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .kuang-san-one ul li {
+            margin-top: 10px;
+        }
+
+        .kuang-san-one ul li a {
+            color: #fff;
+            padding: 5px;
+        }
+
+        .kuang-san-two {
+            float: left;
+            margin-left: 10px;
+            width: 790px;
+            height: 480px;
+        }
+
+        .kuang-san-two-one {
+            width: 790px;
+            height: 340px;
+            position: relative;
+            overflow: hidden;
+            /*background-image: url("./011.png");*/
+        }
+
+        .kuang-san-two-two {
+            float: left;
+            width: 390px;
+            height: 130px;
+            margin-top: 10px;
+            background-image: url("./012.png");
+        }
+
+        .kuang-san-two-three {
+            float: right;
+            width: 390px;
+            height: 130px;
+            margin-top: 10px;
+            background-image: url("./013.png");
+        }
+
+        .kuang-san-three {
+            float: right;
+            width: 190px;
+            height: 480px;
+            background: white;
+        }
+
+        .kuang-san-three-one {
+            width: 190px;
+            height: 116px;
+        }
+
+        .hi {
+            background: white;
+            background-image: url("./选区_011.png");
+            background-repeat: no-repeat;
+            width: 105px;
+            height: 57px;
+            font-size: 12px;
+            color: #666;
+            padding-left: 70px;
+            padding-top: 15px;
+        }
+
+        .hi a {
+            color: #666;
+            font-weight: bolder;
+        }
+
+        .xinrenfuli {
+            float: left;
+            margin-left: 10px;
+            width: 70px;
+            height: 20px;
+            border: 2px solid red;
+            font-size: 12px;
+            color: red;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .xinrenfuli:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .huiyuan {
+            float: left;
+            width: 70px;
+            height: 20px;
+            border: 2px solid red;
+            margin-left: 10px;
+            font-size: 12px;
+            color: red;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .huiyuan:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .kuang-san-three-two {
+            width: 190px;
+            height: 26px;
+            border-top: 1px solid #e3e4e5;
+        }
+
+        .kuang-san-three-two div {
+            float: left;
+            font-size: 12px;
+            height: 12px;
+            margin-left: 10px;
+            text-align: center;
+            margin-top: 7px;
+            line-height: 12px;
+            padding-right: 10px;
+        }
+
+        .sihang {
+            width: 160px;
+            height: 96px;
+            font-size: 12px;
+            padding-left: 0px;
+            padding-top: 11px;
+            margin-left: 10px;
+            margin-top: 0;
+            border-top: 1px solid #e3e4e5;
+        }
+
+        .sihang li {
+            margin-top: 5px;
+        }
+
+        .jiuge {
+            width: 193px;
+            height: 210px;
+            background-image: url("./t.png");
+            margin-top: 17px;
+            margin-left: -1px;
+        }
+
+        .jiuge ul {
+            margin: 0;
+            padding: 0px;
+        }
+
+        .jiuge ul li {
+            float: left;
+            width: 47px;
+            height: 70px;
+            border: 1px solid #f6f6f6;
+            margin: 0px;
+            padding: 0px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .jiuge ul li a {
+            color: #666;
+        }
+
+        .jiuge ul li a:hover {
+            color: red;
+        }
+
+        .kuang-si {
+            margin: auto;
+            margin-top: 10px;
+            width: 1190px;
+            height: 55px;
+            background: #e01222;
+            color: white;
+            font-weight: bolder;
+            font-size: 25px;
+            line-height: 55px;
+        }
+
+        .kuang-si a {
+            color: white;
+            font-size: 14px;
+            font-weight: normal;
+            margin-left: 10px;
+        }
+
+        .kuang-si a:hover {
+            color: white;
+        }
+
+        .biao {
+            height: 55px;
+            width: 73px;
+            background-image: url("./选区_013.png");
+            background-color: #e01222;
+            float: left;
+        }
+
+        .daojishi {
+            height: 55px;
+            width: 300px;
+            float: right;
+        }
+
+        .danqian {
+            float: left;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .shijian {
+            width: 35px;
+            height: 37px;
+            background: #440106;
+            float: left;
+            margin-top: 8px;
+            margin-left: 5px;
+            border-radius: 5px;
+            color: #e01222;
+            text-align: center;
+            line-height: 37px;
+            margin-right: 5px;
+        }
+
+        .liangdian {
+            float: left;
+            color: #440106;
+            line-height: 50px;
+        }
+
+        .kuang-wu {
+            width: 1190px;
+            height: 250px;
+            background: white;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .kuang-wu ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .taiyuxiang {
+            float: left;
+            margin: 0px;
+            padding: 0px;
+            width: 200px;
+            height: 225px;
+            border-right: 1px solid #f6f6f6;
+        }
+
+        .taiyuxiang-tu {
+            width: 200px;
+            height: 170px;
+            background-image: url("./选区_017.png");
+        }
+
+        .taiyuxiang-jieshao {
+            font-size: 12px;
+            margin-left: 15px;
+            color: #666;
+        }
+
+        .taiyuxiang-jiage {
+            color: #f10214;
+            margin-left: 15px;
+            margin-top: 7px;
+            float: left;
+        }
+
+        .taiyuxiang-jieshao a {
+            color: #666;
+        }
+
+        .taiyuxiang-jieshao a:hover {
+            color: red;
+        }
+
+        .yuanjiage {
+            margin-left: 10px;
+            float: right;
+            font-size: 14px;
+            color: #666;
+            line-height: 28px;
+            text-decoration: line-through;
+        }
+
+        .pinpaimiaosha {
+            width: 180px;
+            height: 235px;
+            background-image: url("./22.jpg");
+            float: left;
+            margin-left: -1px;
+            margin-top: 0px;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        .zuojian {
+            width: 41px;
+            height: 69px;
+            background-image: url("./arr_r1_c5.png");
+            position: absolute;
+            left: 0px;
+            top: 135px;
+        }
+
+        .youjian {
+            width: 41px;
+            height: 69px;
+            background-image: url("./arr_r1_c7.png");
+            position: absolute;
+            right: 0px;
+            top: 135px;
+        }
+
+        .zuojian:hover {
+            background-image: url("./arrow_r1_c1.png");
+        }
+
+        .youjian:hover {
+            background-image: url("./arrow_r1_c3.png");
+        }
+
+        .changkuang {
+            width: 790px;
+            height: 340px;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transform-origin: 395px 395px -684.16px;
+            transition: all 1.5s linear 0s;
+        }
+
+        .tuone {
+            width: 790px;
+            height: 340px;
+            background-image: url("./img/58b3d9daN63720ea9 (1).jpg");
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .tutwo {
+            width: 790px;
+            height: 340px;
+            background-image: url("./img/011.png");
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transform: rotateY(60deg) translateX(790px);
+            transform-origin: right;
+        }
+
+        .tuthree {
+            width: 790px;
+            height: 340px;
+            background-image: url("./img/58b7dc83N0d7448f1.jpg");
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transform: rotateY(-60deg) translateX(-790px);
+            transform-origin: left;
+        }
+
+        .tufour {
+            width: 790px;
+            height: 340px;
+            background-image: url("./img/58b77f83N7f0811ba.jpg");
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transform: rotateY(60deg) translateX(790px) rotateY(60deg) translateX(790px);
+            transform-origin: right;
+        }
+
+        .tufive {
+            width: 790px;
+            height: 340px;
+            background-image: url("./img/58b40028Naff5fc99.jpg");
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transform: rotateY(60deg) translateX(790px) rotateY(60deg) translateX(790px) rotateY(60deg) translateX(790px);
+            transform-origin: right;
+        }
+
+        .tusix {
+            width: 790px;
+            height: 340px;
+            background-image: url("./img/58ba3348N479cafe1.jpg");
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transform: rotateY(60deg) translateX(790px) rotateY(60deg) translateX(790px) rotateY(60deg) translateX(790px) rotateY(60deg) translateX(790px);
+            transform-origin: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top-kuang">
+            <div class="beijing">
+                <div class="beijing-dingwei"> </div>
+                <div class="beijing-zi">北京</div>
+            </div>
+            <ul class="top-daohang">
+                <li><a style="border-right:1px solid #e3e4e5" href="#">我的订单</a></li>
+                <li><a href="#">我的京东</a></li>
+                <li><a href="#">京东会员</a></li>
+                <li><a href="#">企业采购</a></li>
+                <li><a href="#">客户服务</a></li>
+                <li><a href="#">网站导航</a></li>
+                <li><a href="#">手机京东</a></li>
+                <li style="width:120px"><a href="#">你好请登录</a> <a style="color:red" href="#">免费注册</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="kuang-er">
+        <div class="erweima"><img src="./007.png" /></div>
+        <div class="dog"></div>
+        <div class="gouwuche">
+            <div class="gouwuche-pic"></div>
+            <a href="#">我的购物车</a>
+            <div class="quan">0</div>
+        </div>
+        <div class="soshuo">
+            <input type="text">
+            <div class="soshuo-logo"></div>
+            <ul class="soshuo-ul">
+                <li><a style="color:red" href="#">300减150</a></li>
+                <li><a href="#">玩物尚智</a></li>
+                <li><a href="#">农耕节</a></li>
+                <li><a href="#">199减188</a></li>
+                <li><a href="#">一件9折</a></li>
+                <li><a href="#">男士围巾</a></li>
+                <li><a href="#">棉拖鞋</a></li>
+                <li><a href="#">牛奶乳品</a></li>
+                <li><a href="#">婴儿衣服</a></li>
+            </ul>
+        </div>
+    </div>
+    <ul class="daohang-ul">
+        <li style="width: 260px;"><a href="#">秒杀</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">优惠券</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">闪购</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">拍卖</a></li>
+        <li style="width: 320px;"><a href="#">服装城</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">京东超市</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">生鲜</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">全球购</a></li>
+        <li style="width: 150px; border-right:none;"><a href="#">京东金融</a></li>
+    </ul>
+    <div class="kuang-san">
+        <div class="kuang-san-one">
+            <ul>
+                <li><a href="#">家用电器</a></li>
+                <li><a href="#">手机</a>/<a href="#">运营商</a>/<a href="#">数码</a></li>
+                <li><a href="#">电脑办公</a></li>
+                <li><a href="#">家居</a>/<a href="#">家具</a>/<a href="#">家装</a>/<a href="#">厨具</a></li>
+                <li><a href="#">男装</a>/<a href="#">女装</a>/<a href="#">童装</a>/<a href="#">内衣</a></li>
+                <li><a href="#">个护化妆</a>/<a href="#">清洁用品</a>/<a href="#">宠物</a></li>
+                <li><a href="#">鞋靴</a>/<a href="#">箱包</a>/<a href="#">珠宝</a>/<a href="#">奢侈品</a></li>
+                <li><a href="#">运动</a>/<a href="#">户外</a>/<a href="#">钟表</a></li>
+                <li><a href="#">汽车</a>/<a href="#">汽车用品</a></li>
+                <li><a href="#">母婴</a>/<a href="#">玩具乐器</a></li>
+                <li><a href="#">食品</a>/<a href="#">酒类</a></li>
+                <li><a href="#">医药保健</a></li>
+                <li><a href="#">图书</a>/<a href="#">音像</a>/<a href="#">电子书</a></li>
+                <li><a href="#">机票</a>/<a href="#">酒店</a>/<a href="#">旅游</a>/<a href="#">生活</a></li>
+                <li><a href="#">理财</a>/<a href="#">众筹</a>/<a href="#">白条</a>/<a href="#">保险</a></li>
+            </ul>
+        </div>
+        <div class="kuang-san-two">
+            <div class="kuang-san-two-one">
+                <div class="wrapper">
+
+                    <ul id="sb-slider" class="sb-slider">
+                        <li>
+                            <a target="_blank"><img src="img/011.png" alt="image1" /></a>
+
+                        </li>
+                        <li>
+                            <a target="_blank"><img src="img/58.jpg" alt="image2" /></a>
+
+                        </li>
+                        <li>
+                            <a target="_blank"><img src="img/99.jpg" alt="image1" /></a>
+
+                        </li>
+                        <li>
+                            <a target="_blank"><img src="img/ba.jpg" alt="image1" /></a>
+
+                        </li>
+                        <li>
+                            <a target="_blank"><img src="img/e1.jpg" alt="image1" /></a>
+
+                        </li>
+                        <li>
+                            <a target="_blank"><img src="img/f1.jpg" alt="image1" /></a>
+
+                        </li>
+                        <!-- <li>
+                            <a target="_blank"><img src="images/7.jpg" alt="image1" /></a>
+
+                        </li> -->
+                    </ul>
+
+                    <div id="shadow" class="shadow"></div>
+
+                    <div id="nav-arrows" class="nav-arrows">
+                        <a href="#">Next</a>
+                        <a href="#">Previous</a>
+                    </div>
+
+                    <div id="nav-dots" class="nav-dots">
+                        <span class="nav-dot-current"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                </div>
+                <!-- /wrapper -->
+
+                <!-- <div class="changkuang">
+                    <div class="tuone"></div>
+                    <div class="tutwo"></div>
+                    <div class="tuthree"></div>
+
+                    <div class="tufour"></div>
+                    <div class="tufive"></div>
+                    <div class="tusix"></div>
+                </div>
+                <div class="zuojian"></div>
+                <div class="youjian"></div>
+                <div class="diandiandian"></div> -->
+            </div>
+            <div class="kuang-san-two-two"></div>
+            <div class="kuang-san-two-three"></div>
+        </div>
+        <div class="kuang-san-three">
+            <div class="kuang-san-three-one">
+                <div class="hi">
+                    Hi 欢迎来到京东！<br>
+                    <a href="#">登录</a>
+                    <a href="#">注册</a>
+                </div>
+                <a href="#">
+                    <div class="xinrenfuli">新人福利</div>
+                </a>
+                <a href="#">
+                    <div class="huiyuan">PLUS会员</div>
+                </a>
+
+
+
+            </div>
+            <div class="kuang-san-three-two">
+                <div style="border-right:1px solid #e3e4e5" class="cuxiao"><a style="color:#666" href="#">促销</a></div>
+                <div class="gonggao"><a style="color:#666" href="#">公告</a></div>
+                <div style="float:right;" class="gengduo"><a style="color:#666" href="#">更多</a></div>
+            </div>
+            <ul class="sihang">
+                <li><a style="color:#666" href="#">华北区域优质活鲜送到家</a></li>
+                <li><a style="color:#666" href="#">京东帮服务店突破1700家</a></li>
+                <li><a style="color:#666" href="#">京东帮服务店突破1700家</a></li>
+                <li><a style="color:#666" href="#">京东帮服务店突破1700家</a></li>
+            </ul>
+            <div class="jiuge">
+                <ul>
+                    <li><a href="#">话费</a></li>
+                    <li style="margin-left:-1px"><a href="#">机票</a></li>
+                    <li style="margin-left:-1px"><a href="#">酒店</a></li>
+                    <li style="margin-left:-1px"><a href="#">游戏</a></li>
+                    <li style="margin-top:-1px;"><a href="#">企业购</a></li>
+                    <li style="margin-left:-1px; margin-top:-1px;"><a href="#">加油卡</a></li>
+                    <li style="margin-left:-1px; margin-top:-1px;"><a href="#">电影票</a></li>
+                    <li style="margin-left:-1px; margin-top:-1px;"><a href="#">火车票</a></li>
+                    <li style="margin-top:-1px;"><a href="#">众筹</a></li>
+                    <li style="margin-left:-1px; margin-top:-1px;"><a href="#">理财</a></li>
+                    <li style="margin-left:-1px; margin-top:-1px;"><a href="#">礼品卡</a></li>
+                    <li style="margin-left:-1px; margin-top:-1px;"><a href="#">白条</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="kuang-si">
+        <div class="biao"></div>京东秒杀
+        <a href="#">总有你想好不到的低价<img style="position:relative; left:3px; top:4px;"src="./选区_014.png"/></a>
+        <div class="daojishi">
+            <div class="danqian">
+                当前场次
+            </div>
+            <div class="shijian">00</div>
+            <div class="liangdian">:</div>
+            <div class="shijian">01</div>
+            <div class="liangdian">:</div>
+            <div class="shijian">56</div>
+            <div class="danqian">
+                后抢购结束
+            </div>
+        </div>
+    </div>
+    <div class="kuang-wu">
+        <ul>
+            <li class="taiyuxiang">
+                <div class="taiyuxiang-tu"> </div>
+                <div class="taiyuxiang-jieshao"> <a href="#"> 【京东超市】福临门 泰米 泰玉香高级进口茉莉香米</a></div>
+                <div class="taiyuxiang-jiage"> ¥29.90
+                    <div class="yuanjiage">¥69.90</div>
+                </div>
+            </li>
+            <li class="taiyuxiang">
+                <div class="taiyuxiang-tu"> </div>
+                <div class="taiyuxiang-jieshao"> <a href="#"> 【京东超市】福临门 泰米 泰玉香高级进口茉莉香米</a></div>
+                <div class="taiyuxiang-jiage"> ¥29.90
+                    <div class="yuanjiage">¥69.90</div>
+                </div>
+            </li>
+            <li class="taiyuxiang">
+                <div class="taiyuxiang-tu"> </div>
+                <div class="taiyuxiang-jieshao"> <a href="#"> 【京东超市】福临门 泰米 泰玉香高级进口茉莉香米</a></div>
+                <div class="taiyuxiang-jiage"> ¥29.90
+                    <div class="yuanjiage">¥69.90</div>
+                </div>
+            </li>
+            <li class="taiyuxiang">
+                <div class="taiyuxiang-tu"> </div>
+                <div class="taiyuxiang-jieshao"> <a href="#"> 【京东超市】福临门 泰米 泰玉香高级进口茉莉香米</a></div>
+                <div class="taiyuxiang-jiage"> ¥29.90
+                    <div class="yuanjiage">¥69.90</div>
+                </div>
+            </li>
+            <li class="taiyuxiang">
+                <div class="taiyuxiang-tu"> </div>
+                <div class="taiyuxiang-jieshao"> <a href="#"> 【京东超市】福临门 泰米 泰玉香高级进口茉莉香米</a></div>
+                <div class="taiyuxiang-jiage"> ¥29.90
+                    <div class="yuanjiage">¥69.90</div>
+                </div>
+            </li>
+            <li class="pinpaimiaosha"></li>
+        </ul>
+    </div>
+    <script src="./js/jquery-3.0.0.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            var i = 0;
+            $(".zuojian").click(function() {
+                i = i + 60;
+                console.log("i=", i);
+                $(".changkuang").css({
+                    "transform": "rotateY(" + i + "deg)"
+                })
+            })
+            $(".youjian").click(function() {
+                i = i - 60;
+                console.log("i=", i);
+                $(".changkuang").css({
+                    "transform": "rotateY(" + i + "deg)"
+                })
+            })
+        })
+    </script>
+
+
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.slicebox.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            var Page = (function() {
+
+                var $navArrows = $('#nav-arrows').hide(),
+                    $navDots = $('#nav-dots').hide(),
+                    $nav = $navDots.children('span'),
+                    $shadow = $('#shadow').hide(),
+                    slicebox = $('#sb-slider').slicebox({
+                        onReady: function() {
+
+                            $navArrows.show();
+                            $navDots.show();
+                            $shadow.show();
+
+                        },
+                        onBeforeChange: function(pos) {
+
+                            $nav.removeClass('nav-dot-current');
+                            $nav.eq(pos).addClass('nav-dot-current');
+
+                        }
+                    }),
+
+                    init = function() {
+
+                        initEvents();
+
+                    },
+                    initEvents = function() {
+
+                        // add navigation events
+                        $navArrows.children(':first').on('click', function() {
+
+                            slicebox.next();
+                            return false;
+
+                        });
+
+                        $navArrows.children(':last').on('click', function() {
+
+                            slicebox.previous();
+                            return false;
+
+                        });
+
+                        $nav.each(function(i) {
+
+                            $(this).on('click', function(event) {
+
+                                var $dot = $(this);
+
+                                if (!slicebox.isActive()) {
+
+                                    $nav.removeClass('nav-dot-current');
+                                    $dot.addClass('nav-dot-current');
+
+                                }
+
+                                slicebox.jump(i + 1);
+                                return false;
+
+                            });
+
+                        });
+
+                    };
+
+                return {
+                    init: init
+                };
+
+            })();
+
+            Page.init();
+
+        });
+    </script>
+    <!-- <script src="http://dreamsky.github.io/main/blog/common/init.js"></script> -->
+</body>
+
+</html>
